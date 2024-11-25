@@ -1,0 +1,102 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    color: #fff;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.days-counter {
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+.hearts {
+    position: relative;
+    margin-top: 20px;
+}
+
+.heart {
+    width: 50px;
+    height: 50px;
+    background-color: #ff6b81;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    animation: float 4s infinite ease-in-out;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    width: 50px;
+    height: 50px;
+    background-color: #ff6b81;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart::before {
+    top: -25px;
+    left: 0;
+}
+
+.heart::after {
+    left: 25px;
+    top: 0;
+}
+
+.heart:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.heart:nth-child(2) {
+    animation-delay: 1s;
+    left: 40%;
+}
+
+.heart:nth-child(3) {
+    animation-delay: 2s;
+    left: 60%;
+}
+
+.heart:nth-child(4) {
+    animation-delay: 3s;
+    left: 80%;
+}
+
+.heart:nth-child(5) {
+    animation-delay: 4s;
+    left: 20%;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(-50%, -50%) rotate(-45deg) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(-50%, calc(-100px - 50%)) rotate(-45deg) scale(1.2);
+        opacity: 0.6;
+    }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đếm Ngày Yêu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>💖 Hiếu & Vân Nhi 💖</h1>
+        <p><strong>Công chúa của anh</strong>, Vân Nhi</p>
+        <div id="days-love" class="days-counter"></div>
+        <p>Bắt đầu từ ngày: 19/11/2024</p>
+    </div>
+    <div class="floating-hearts"></div>
+    <script>
+        const startDate = new Date("2024-11-19T00:00:00");
+        const daysLove = document.getElementById("days-love");
+
+        function updateTime() {
+            const now = new Date();
+            const diffTime = now - startDate;
+
+            const days = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diffTime / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diffTime / (1000 * 60)) % 60);
+            const seconds = Math.floor((diffTime / 1000) % 60);
+
+            daysLove.textContent = `Chúng mình đã yêu nhau được ${days} ngày, ${hours} giờ, ${minutes} phút, ${seconds} giây!`;
+        }
+
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+            document.querySelector(".floating-hearts").appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        updateTime();
+        setInterval(updateTime, 1000);
+        setInterval(createHeart, 300);
+    </script>
+</body>
+</html>
